@@ -5,14 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>06 新規会員登録完了 | MediFlow 病院側</title>
 <link rel="stylesheet" href="../assets/style.css">
-
+<style>
+body{display:block;background:#e8efec}
+.hosp{width:min(1440px,100%);margin:0 auto;background:#f5f9f7;min-height:100vh;display:flex;flex-direction:column}
+.common-header{height:80px;background:#fff;border-bottom:1px solid #dce8e2;display:flex;align-items:center;padding:0 64px;gap:28px}
+.common-header .brand{font-size:26px;font-weight:700;color:#173e3a}
+.common-header .sub{font-size:13px;color:#607671}
+.common-header .support{margin-left:auto;font-size:13px;font-weight:700;color:#087f74}
+.auth-main{flex:1;display:flex;gap:150px;padding:46px 96px 40px;align-items:flex-start}
+.brand-block{width:530px;flex-shrink:0;padding-top:99px}
+.brand-block .eyebrow{font-size:13px}
+.brand-block h1{font-size:42px;line-height:1.4;margin:24px 0 28px}
+.brand-block .lead{font-size:18px}
+.features{background:#e4f3ec;border-radius:20px;padding:28px;margin-top:44px;display:flex;flex-direction:column;gap:20px}
+.features p{font-size:16px;font-weight:700;color:#087f74}
+.form-card{width:568px;flex-shrink:0;background:#fff;border:1px solid #dce8e2;border-radius:20px;padding:32px 36px;display:flex;flex-direction:column;gap:18px}
+.form-card h1{font-size:27px}
+.form-card .note{font-size:12px;color:#607671;line-height:1.6}
+.form-card .note-sm{font-size:11px;color:#607671;line-height:1.6}
+.ok-box{background:#e4f3ec;border-radius:12px;padding:16px;font-size:13px;color:#087f74;line-height:1.6}
+.err-box{background:#fff0ed;border-radius:12px;padding:16px;font-size:13px;color:#b64040;line-height:1.6}
+.pagefoot{display:flex;justify-content:space-between;padding:20px 64px;font-size:12px;color:#607671}
+.footlink{padding:0 64px 20px;font-size:13px}.footlink a{color:#087f74}
+@media(max-width:1100px){.auth-main{flex-direction:column;gap:32px;padding:32px 24px}.brand-block{width:100%;padding-top:0}.form-card{width:100%}.common-header,.pagefoot,.footlink{padding-left:24px;padding-right:24px}}
+</style>
 </head>
 <body>
-<div class="phone">
-<div class="statusbar"><span>9:41</span><span>▮▮▮&nbsp; Wi-Fi &nbsp;▰</span></div>
-<div class="header"><a class="back" href="01.html">‹</a><span class="title">手続き完了</span></div><div class="body"><p class="eyebrow">MEDIFLOW FOR CLINICS</p><p class="lead">医療の現場に、もっとゆとりを。予約から受付、診療スケジュールまで。日々の運営を、ひとつの場所で。</p><div class="card"><p>01　予約状況をひと目で把握</p><p>02　診療時間・医師の予定をまとめて管理</p><p>03　バーコードでスムーズな受付</p></div><p class="eyebrow">手続き完了</p><h1>新規登録が完了しました</h1><p class="lead">登録したメールアドレスとパスワードでログインしてください。</p><div class="notice">✓　手続きが正常に完了しました。</div><a class="btn-primary" href="01.html">ログイン画面へ</a><p class="center-note">MediFlowをご利用いただきありがとうございます。</p><p class="center-note">© 2026 MediFlow　　医療機関向けポータル</p><p class="center-note">利用規約　　プライバシーポリシー</p></div>
-<div class="homebar"></div>
-<p class="center-note" style="padding-bottom:16px"><a class="link" href="../index.html">一覧へ戻る</a></p>
+<div class="hosp">
+<header class="common-header"><span class="brand">MediFlow</span><span class="sub">医療機関向けポータル</span><span class="support">サポート・お問い合わせ</span></header>
+<main class="auth-main">
+<div class="brand-block">
+<p class="eyebrow">MEDIFLOW FOR CLINICS</p>
+<h1>医療の現場に、<br>もっとゆとりを。</h1>
+<p class="lead">予約から受付、診療スケジュールまで。<br>日々の運営を、ひとつの場所で。</p>
+<div class="features"><p>01　予約状況をひと目で把握</p><p>02　診療時間・医師の予定をまとめて管理</p><p>03　バーコードでスムーズな受付</p></div>
+</div>
+<div class="form-card">
+<p class="eyebrow">手続き完了</p>
+<h1>新規登録が完了しました</h1>
+<p class="lead">登録したメールアドレスとパスワードでログインしてください。</p>
+<div class="ok-box">✓　手続きが正常に完了しました。</div>
+<a class="btn-primary" href="01.html">ログイン画面へ</a>
+<p class="note">MediFlowをご利用いただきありがとうございます。</p>
+</div>
+</main>
+<footer class="pagefoot"><span>© 2026 MediFlow　　医療機関向けポータル</span><span>利用規約　　プライバシーポリシー</span></footer>
+<p class="footlink"><a href="../index.html">← 画面一覧へ戻る</a></p>
 </div>
 </body>
 </html>

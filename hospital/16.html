@@ -5,18 +5,97 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>16 おくすり手帳登録 | MediFlow 病院側</title>
 <link rel="stylesheet" href="../assets/style.css">
-
+<style>
+body{display:block;background:#e8efec}
+.pc{width:min(1440px,100%);margin:0 auto;background:#f5f9f7;min-height:100vh;display:flex;flex-direction:column}
+.layout{display:flex;flex:1;align-items:stretch}
+.sidebar{width:248px;background:#fff;border-right:1px solid #dce7e2;padding:25px 16px;display:flex;flex-direction:column;gap:20px;flex-shrink:0}
+.sidebar .brand{font-size:26px;font-weight:700;padding:0 12px}
+.sidebar .sub{font-size:12px;color:#607671;padding:2px 12px 0}
+.navgroup{background:#e4f3ec;border-radius:14px;padding:14px 8px 8px;display:flex;flex-direction:column;gap:2px}
+.glabel{font-weight:700;font-size:14px;padding:0 10px 8px}
+.glabel2{font-weight:700;font-size:14px;padding:0 10px 8px}
+.navgroup a,.navitem{display:block;padding:12px 10px;border-radius:9px;color:#173e3a;text-decoration:none;font-size:14px}
+.navgroup a:hover,.navitem:hover{background:#eef6f3}
+a.active{background:#087f74;color:#fff;font-weight:700}
+.sidefoot{margin-top:auto;display:flex;flex-direction:column;gap:2px}
+.sidefoot .mut{color:#607671;font-size:13px;padding:0 10px 6px}
+.maincol{flex:1;display:flex;flex-direction:column;min-width:0}
+.apphead{height:80px;background:#fff;border-bottom:1px solid #dce7e2;display:flex;align-items:center;justify-content:space-between;padding:0 32px}
+.apphead .clinic{font-size:20px;font-weight:700;color:#173e3a;text-decoration:none}
+.apphead .meta{font-size:13px;color:#607671}
+.main{flex:1;padding:32px;display:flex;flex-direction:column;gap:20px}
+.main h1{font-size:26px}
+.patientbar{background:#e4f3ec;border-radius:12px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.patientbar .nm{font-size:18px;font-weight:700;margin-bottom:6px}
+.patientbar .dt{font-size:13px;color:#173e3a;line-height:1.7}
+.btn-s{background:#fff;border:1px solid #dce8e2;border-radius:10px;padding:11px 20px;font-size:13px;font-weight:700;color:#173e3a;text-decoration:none;white-space:nowrap}
+.split{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:start}
+.panel{background:#fff;border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.panel h2{font-size:18px}
+.rxbox{background:#f5f9f7;border-radius:12px;padding:16px 18px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 10px;border-bottom:1px solid #dce8e2;text-align:left;vertical-align:top}
+th{font-weight:700;color:#607671}
+.btnrow{display:flex;gap:14px}
+.btnrow a{flex:1}
+.qrwrap{text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.qr{font-size:150px;line-height:1;border:1px solid #dce8e2;border-radius:16px;padding:26px 34px;background:#fff}
+.oknote{background:#e4f3ec;border-radius:10px;padding:13px 16px;font-size:13px;width:100%}
+.footlink{padding:0 32px 18px;font-size:13px}.footlink a{color:#087f74}
+@media(max-width:1000px){.split{grid-template-columns:1fr}.sidebar{width:200px}}
+</style>
 </head>
 <body>
-<div class="phone">
-<div class="statusbar"><span>9:41</span><span>▮▮▮&nbsp; Wi-Fi &nbsp;▰</span></div>
-<div class="header"><a class="back" href="14.html">‹</a><span class="title">よりそい中央クリニック</span></div>
-<div class="body">
-<p class="center-note">MediFlow　医療機関向けポータル　／　医療機関ID：MF-00128　　管理者</p>
-<div class="card"><p><strong>受付・会計</strong></p><p>バーコード読み取り／おくすり手帳登録</p><p><strong>診療</strong></p><p>患者カルテ</p><p><strong>病院管理</strong></p><p>マイページ／予約状況／予定管理／急患・遅延通知／病院情報確認</p><a class="link" style="text-align:left" href="15.html">バーコード読み取り</a><a class="link" style="text-align:left" href="16.html">おくすり手帳登録</a><a class="link" style="text-align:left" href="20.html">患者カルテ</a><a class="link" style="text-align:left" href="14.html">マイページ</a><a class="link" style="text-align:left" href="17.html">予約状況</a><a class="link" style="text-align:left" href="18.html">予定管理</a><a class="link" style="text-align:left" href="19.html">急患・遅延通知</a><a class="link" style="text-align:left" href="21.html">病院情報確認</a><a class="link" style="text-align:left" href="22.html">お問い合わせ</a><a class="link" style="text-align:left" href="23.html">Q &amp; A</a><a class="link" style="text-align:left" href="10.html">ログアウト</a><p class="lead">お困りですか？</p></div>
-<h1>おくすり手帳登録</h1><p class="lead">会計時にQRを提示し、患者のスマートフォンからおくすり手帳へ登録するための画面です。</p><div class="card"><p><strong>鈴木 花子 様</strong></p><p class="lead">患者ID：PT-0001　／　予約番号：MF-112001</p><p>2026年11月12日（木）09:00</p><p>内科　佐藤 美咲</p><a class="link" style="text-align:left" href="20.html">患者を変更</a></div><h1 style="font-size:20px">登録する処方情報</h1><div class="card"><p>医療機関：よりそい中央クリニック</p><p>診療日：2026年11月12日　／　担当医師：佐藤 美咲</p><p><strong>お薬の名称／用法・用量／日数</strong></p><p>サンプル錠A</p><p>1回1錠・1日3回　毎食後　3日分</p><p class="lead">※画面確認用の架空の処方です。</p></div><h1 style="font-size:20px">患者へのご案内</h1><div class="card"><p>1. 患者名・診療日・処方内容を一緒に確認します。</p><p>2. 右のQRを患者のスマートフォンで読み取ってもらいます。</p><p>3. 患者側で内容を確認し、おくすり手帳へ登録します。</p></div><a class="btn-outline" href="16.html">処方情報を確認・編集</a><a class="btn-primary" href="16.html">QRを表示・更新</a><div class="card" style="text-align:center"><p><strong>会計時に患者へ提示</strong></p><p style="font-size:64px">▦</p><p>スマートフォンでQRを読み取ってください。</p><p class="lead">患者：鈴木 花子 様</p><p class="lead">確認用QR（実際の登録はできません）</p><p class="lead">患者本人であることを確認してから提示してください。</p></div><p class="center-note">表示データ：サンプル　｜　QRはデザイン確認用です。患者側のおくすり手帳への登録処理は含みません。</p></div>
-<div class="homebar"></div>
-<p class="center-note" style="padding-bottom:16px"><a class="link" href="../index.html">一覧へ戻る</a></p>
+<div class="pc">
+<div class="layout">
+<aside class="sidebar">
+<div><p class="brand">MediFlow</p><p class="sub">医療機関向けポータル</p></div>
+<div class="navgroup"><p class="glabel">受付・会計</p><a href="15.html">バーコード読み取り</a><a class="active" href="16.html">おくすり手帳登録</a></div>
+<div class="navgroup"><p class="glabel">診療</p><a href="20.html">患者カルテ</a></div>
+<div><p class="glabel2">病院管理</p><a class="navitem" href="14.html">マイページ</a><a class="navitem" href="17.html">予約状況</a><a class="navitem" href="18.html">予定管理</a><a class="navitem" href="19.html">急患・遅延通知</a><a class="navitem" href="21.html">病院情報確認</a></div>
+<div class="sidefoot"><p class="mut">お困りですか？</p><a class="navitem" href="22.html">お問い合わせ</a><a class="navitem" href="23.html">Q &amp; A</a><a class="navitem" href="10.html">ログアウト</a></div>
+</aside>
+<div class="maincol">
+<header class="apphead"><a class="clinic" href="14.html">よりそい中央クリニック</a><span class="meta">医療機関ID：MF-00128　　管理者</span></header>
+<main class="main">
+<div><h1>おくすり手帳登録</h1><p class="lead">会計時にQRを提示し、患者のスマートフォンからおくすり手帳へ登録するための画面です。</p></div>
+<div class="patientbar">
+<div><p class="nm">鈴木 花子 様</p><p class="dt">患者ID：PT-0001　／　予約番号：MF-112001<br>2026年11月12日（木）09:00<br>内科　佐藤 美咲</p></div>
+<a class="btn-s" href="20.html">患者を変更</a>
+</div>
+<div class="split">
+<div class="panel">
+<h2>登録する処方情報</h2>
+<p>医療機関：よりそい中央クリニック</p>
+<p>診療日：2026年11月12日　／　担当医師：佐藤 美咲</p>
+<div class="rxbox">
+<table>
+<tr><th>お薬の名称</th><th>用法・用量</th><th>日数</th></tr>
+<tr><td>サンプル錠A</td><td>1回1錠・1日3回<br>毎食後</td><td>3日分</td></tr>
+</table>
+<p class="lead" style="margin-top:10px">※画面確認用の架空の処方です。</p>
+</div>
+<h2>患者へのご案内</h2>
+<p>1. 患者名・診療日・処方内容を一緒に確認します。</p>
+<p>2. 右のQRを患者のスマートフォンで読み取ってもらいます。</p>
+<p>3. 患者側で内容を確認し、おくすり手帳へ登録します。</p>
+<div class="btnrow"><a class="btn-outline" href="16.html">処方情報を確認・編集</a><a class="btn-primary" href="16.html">QRを表示・更新</a></div>
+</div>
+<div class="panel qrwrap">
+<h2 style="align-self:flex-start">会計時に患者へ提示</h2>
+<p class="qr">▦</p>
+<p><strong>スマートフォンでQRを読み取ってください。</strong></p>
+<p class="lead">患者：鈴木 花子 様</p>
+<p class="lead">確認用QR（実際の登録はできません）</p>
+<p class="oknote">患者本人であることを確認してから提示してください。</p>
+</div>
+</div>
+<p class="center-note">表示データ：サンプル　｜　QRはデザイン確認用です。患者側のおくすり手帳への登録処理は含みません。</p>
+</main>
+<p class="footlink"><a href="../index.html">一覧へ戻る</a></p>
+</div>
+</div>
 </div>
 </body>
 </html>

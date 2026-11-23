@@ -1,22 +1,75 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>21 会員情報確認 | MediFlow 病院側</title>
-<link rel="stylesheet" href="../assets/style.css">
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>21 会員情報確認 | MediFlow 病院側</title><link rel="stylesheet" href="../assets/style.css"><style>
+body{display:block;background:#e8efec}
+.hosp{width:min(1440px,100%);margin:0 auto;background:#f5f9f7;min-height:100vh;display:flex;flex-direction:column}
+.topbar{background:#fff;border-bottom:1px solid #dce7e2;min-height:80px;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:16px}
+.topbar .brand{font-size:20px;font-weight:700;color:#173e3a}
+.layout{display:flex;flex:1}
+.sidebar{width:250px;background:#173e3a;color:#eaf4f0;padding:24px 18px;display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+.sidebar .brand{font-size:20px;font-weight:700;color:#fff}
+.sidebar .sub{font-size:11px;color:#9fc4ba;letter-spacing:.12em;margin-bottom:4px}
+.sidebar .side-label{font-size:11px;color:#9fc4ba;letter-spacing:.08em;font-weight:700;margin:16px 12px 4px}
+.sidebar a{color:#eaf4f0;text-decoration:none;padding:10px 12px;border-radius:10px;font-size:14px;display:block}
+.sidebar a:hover,.sidebar a.active{background:#087f74;color:#fff}
+.sidebar .foot{margin-top:auto;font-size:12px;color:#9fc4ba;line-height:1.9;padding-top:20px}
+.sidebar .foot a{display:inline;padding:0;color:#fff;font-weight:700}
+.main{flex:1;padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.main h1{font-size:24px}
+.mut{color:#607671;font-size:13px;line-height:1.6}
+.panel{background:#fff;border:1px solid #dce7e2;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.panel h2{font-size:17px}
+.split{display:grid;grid-template-columns:1fr 380px;gap:16px;align-items:start}
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+@media(max-width:900px){.split,.split2{grid-template-columns:1fr}.sidebar{width:190px}}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:10px 12px;border-bottom:1px solid #eef4f1;text-align:left;vertical-align:top}
+th{background:#eef6f3;font-weight:700}
+.badge{display:inline-block;background:#e6f4f1;color:#087f74;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700}
+.badge.warn{background:#fff0ed;color:#b3402a}
+.badge.gray{background:#eef1f0;color:#607671}
+textarea,.field{background:#fff;border:1px solid #dce7e2;border-radius:12px;padding:12px 14px;font-size:14px;color:#173e3a;width:100%}
+textarea{min-height:110px;font-family:inherit;line-height:1.6}
+.field.ph{color:#607671}
+.alert{background:#fff0ed;border:1px solid #f0cfc8;border-radius:14px;padding:12px 16px;font-size:13px;line-height:1.6}
+.footlink{padding:14px 28px;font-size:13px}.footlink a{color:#087f74}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal .dow{text-align:center;font-weight:700;font-size:12px;color:#607671;padding:4px}
+.cal .day{background:#fff;border:1px solid #dce7e2;border-radius:10px;padding:8px;min-height:76px;font-size:12px;line-height:1.5}
+.cal .day .dnum{font-weight:700;font-size:14px}
+.cal .day.off{background:#f0f4f2;color:#93a49e}
+.cal .day.sel{border:2px solid #087f74;background:#e6f4f1}
+.chip{display:inline-block;border:1px solid #dce7e2;background:#fff;border-radius:999px;padding:8px 14px;font-size:13px}
+.chip.on{background:#087f74;color:#fff;border-color:#087f74;font-weight:700}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #eef4f1;font-size:14px}
+.frow:last-child{border-bottom:none}
+label{margin-bottom:0}
+.qa-q{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #eef4f1;font-size:14px}
+.qa-q:last-child{border-bottom:none}
+.qa-q .mark{font-weight:700;color:#087f74}
+.qa-q .tog{margin-left:auto;color:#607671;font-weight:700}
+.qa-a{font-size:13px;color:#607671;line-height:1.7;padding:0 0 12px 24px;border-bottom:1px solid #eef4f1}
+</style></head>
+<body><div class="hosp">
+<div class="topbar"><span class="brand">MediFlow</span><span>よりそい中央クリニック　／　医療機関ID：MF-00128　　管理者</span></div>
+<div class="layout"><aside class="sidebar"><div class="brand">MediFlow</div><div class="sub">医療機関向けポータル</div><p class="side-label">受付・会計</p><a href="15.html">バーコード読み取り</a><a href="16.html">おくすり手帳登録</a><p class="side-label">診療</p><a href="20.html">患者カルテ</a><p class="side-label">病院管理</p><a href="14.html">マイページ</a><a href="17.html">予約状況</a><a href="18.html">予定管理</a><a href="19.html">急患・遅延通知</a><a href="21.html" class="active">病院情報確認</a><div class="foot">お困りですか？<br><a href="22.html">お問い合わせ</a><br><a href="23.html">Q &amp; A</a><br><a href="10.html">ログアウト</a></div></aside><main class="main">
 
-</head>
-<body>
-<div class="phone">
-<div class="statusbar"><span>9:41</span><span>▮▮▮&nbsp; Wi-Fi &nbsp;▰</span></div>
-<div class="header"><a class="back" href="14.html">‹</a><span class="title">よりそい中央クリニック</span></div>
-<div class="body">
-<p class="center-note">MediFlow　医療機関向けポータル　／　医療機関ID：MF-00128　　管理者</p>
-<div class="card"><p><strong>受付・会計</strong></p><p>バーコード読み取り／おくすり手帳登録</p><p><strong>診療</strong></p><p>患者カルテ</p><p><strong>病院管理</strong></p><p>マイページ／予約状況／予定管理／急患・遅延通知／病院情報確認</p><a class="link" style="text-align:left" href="15.html">バーコード読み取り</a><a class="link" style="text-align:left" href="16.html">おくすり手帳登録</a><a class="link" style="text-align:left" href="20.html">患者カルテ</a><a class="link" style="text-align:left" href="14.html">マイページ</a><a class="link" style="text-align:left" href="17.html">予約状況</a><a class="link" style="text-align:left" href="18.html">予定管理</a><a class="link" style="text-align:left" href="19.html">急患・遅延通知</a><a class="link" style="text-align:left" href="21.html">病院情報確認</a><a class="link" style="text-align:left" href="22.html">お問い合わせ</a><a class="link" style="text-align:left" href="23.html">Q &amp; A</a><a class="link" style="text-align:left" href="10.html">ログアウト</a><p class="lead">お困りですか？</p></div>
-<h1>会員情報確認</h1><p class="lead">医療機関の登録情報を確認・更新できます。</p><h1 style="font-size:20px">登録情報確認・更新</h1><p>医療機関ID：MF-00128</p><div><label>病院名</label><div class="input"><span>よりそい中央クリニック</span></div></div><div><label>メールアドレス</label><div class="input"><span>clinic@example.com</span></div></div><div><label>診療科目</label><div class="input"><span>内科・皮膚科　⌄</span></div></div><p class="lead">登録情報を変更した場合は、更新ボタンを押してください。</p><a class="btn-primary" href="21.html">登録情報を更新する</a><p class="center-note">表示データ：サンプル</p><h1 style="font-size:20px">パスワード再設定</h1><p class="lead">登録済みのメールアドレスに、再設定のご案内を送信します。</p><a class="btn-outline" href="07.html">再設定メールを送信</a><h1 style="font-size:20px">お問い合わせ</h1><p class="lead">操作方法や登録情報についてお困りの方は、サポートへご相談ください。</p><a class="btn-outline" href="22.html">お問い合わせへ</a><h1 style="font-size:20px">アカウント管理</h1><a class="btn-outline" href="10.html">ログアウト</a><a class="link" href="12.html">退会手続きへ</a></div>
-<div class="homebar"></div>
-<p class="center-note" style="padding-bottom:16px"><a class="link" href="../index.html">一覧へ戻る</a></p>
+<div><p class="eyebrow">病院管理</p><h1>会員情報確認</h1><p class="mut">医療機関の登録情報を確認・更新できます。</p></div>
+<div class="split2">
+<div class="panel"><h2>登録情報確認・更新</h2>
+<div class="frow"><span>医療機関ID</span><strong>MF-00128</strong></div>
+<div><label>病院名</label><p class="field">よりそい中央クリニック</p></div>
+<div><label>メールアドレス</label><p class="field">clinic@example.com</p></div>
+<div class="frow"><span>診療科目</span><span class="field" style="width:220px">内科・皮膚科　⌄</span></div>
+<p class="mut">登録情報を変更した場合は、更新ボタンを押してください。</p>
+<a class="btn-primary" href="21.html">登録情報を更新する</a>
+<p class="mut">表示データ：サンプル</p></div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="panel"><h2>パスワード再設定</h2><p class="mut">登録済みのメールアドレスに、再設定のご案内を送信します。</p><a class="btn-outline" href="07.html">再設定メールを送信</a></div>
+<div class="panel"><h2>お問い合わせ</h2><p class="mut">操作方法や登録情報についてお困りの方は、サポートへご相談ください。</p><a class="btn-outline" href="22.html">お問い合わせへ</a></div>
+<div class="panel"><h2>アカウント管理</h2><a class="btn-outline" href="10.html">ログアウト</a><a class="link" style="text-align:left" href="12.html">退会手続きへ</a></div>
 </div>
-</body>
-</html>
+</div>
+
+</main></div>
+<footer class="footlink"><a href="../index.html">← 画面一覧へ戻る</a></footer></div></body></html>

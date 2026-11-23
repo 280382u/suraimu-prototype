@@ -5,18 +5,97 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>14 マイページ | MediFlow 病院側</title>
 <link rel="stylesheet" href="../assets/style.css">
-
+<style>
+body{display:block;background:#e8efec}
+.pc{width:min(1440px,100%);margin:0 auto;background:#f5f9f7;min-height:100vh;display:flex;flex-direction:column}
+.layout{display:flex;flex:1;align-items:stretch}
+.sidebar{width:248px;background:#fff;border-right:1px solid #dce7e2;padding:25px 16px;display:flex;flex-direction:column;gap:20px;flex-shrink:0}
+.sidebar .brand{font-size:26px;font-weight:700;padding:0 12px}
+.sidebar .sub{font-size:12px;color:#607671;padding:2px 12px 0}
+.navgroup{background:#e4f3ec;border-radius:14px;padding:14px 8px 8px;display:flex;flex-direction:column;gap:2px}
+.glabel{font-weight:700;font-size:14px;padding:0 10px 8px}
+.glabel2{font-weight:700;font-size:14px;padding:0 10px 8px}
+.navgroup a,.navitem{display:block;padding:12px 10px;border-radius:9px;color:#173e3a;text-decoration:none;font-size:14px}
+.navgroup a:hover,.navitem:hover{background:#eef6f3}
+a.active{background:#087f74;color:#fff;font-weight:700}
+a.active-light{background:#e4f3ec;font-weight:700}
+.sidefoot{margin-top:auto;display:flex;flex-direction:column;gap:2px}
+.sidefoot .mut{color:#607671;font-size:13px;padding:0 10px 6px}
+.maincol{flex:1;display:flex;flex-direction:column;min-width:0}
+.apphead{height:80px;background:#fff;border-bottom:1px solid #dce7e2;display:flex;align-items:center;justify-content:space-between;padding:0 32px}
+.apphead .clinic{font-size:20px;font-weight:700;color:#173e3a;text-decoration:none}
+.apphead .meta{font-size:13px;color:#607671}
+.main{flex:1;padding:32px;display:flex;flex-direction:column;gap:20px}
+.main h1{font-size:26px}
+.titlebar{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.datebox{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.datechip{background:#e4f3ec;border-radius:7px;padding:4px 14px;font-size:13px;font-weight:700;color:#087f74}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{background:#fff;border-radius:14px;padding:18px 22px;display:flex;flex-direction:column;gap:4px}
+.stat .lbl{font-size:13px;font-weight:700;color:#607671}
+.stat .num{font-size:38px;font-weight:700}
+.stat .num small{font-size:16px}
+.stat .cap{font-size:13px;color:#607671}
+.banner{background:#087f74;color:#fff;border-radius:14px;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.banner .bt{font-size:18px;font-weight:700;margin-bottom:6px}
+.banner .bs{font-size:13px;opacity:.9}
+.btn-w{background:#fff;color:#173e3a;border:1px solid #dce8e2;border-radius:10px;padding:12px 24px;font-weight:700;text-decoration:none;white-space:nowrap}
+.panel{background:#fff;border-radius:12px;padding:20px 22px}
+.panelhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.panelhead h2{font-size:18px}
+.btn-s{background:#fff;border:1px solid #dce8e2;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:700;color:#173e3a;text-decoration:none;display:inline-block}
+.btn-xs{background:#fff;border:1px solid #dce8e2;border-radius:10px;padding:6px 14px;font-size:12px;font-weight:700;color:#173e3a;text-decoration:none;display:inline-block}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:10px 12px;border-bottom:1px solid #eef4f1;text-align:left;vertical-align:middle}
+th{font-weight:700;color:#607671}
+.menu4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.menu4 a{background:#fff;border:1px solid #dce8e2;border-radius:10px;padding:13px;text-align:center;font-weight:700;color:#173e3a;text-decoration:none;font-size:14px}
+.footlink{padding:0 32px 18px;font-size:13px}.footlink a{color:#087f74}
+@media(max-width:1000px){.cards4{grid-template-columns:repeat(2,1fr)}.menu4{grid-template-columns:repeat(2,1fr)}.sidebar{width:200px}}
+</style>
 </head>
 <body>
-<div class="phone">
-<div class="statusbar"><span>9:41</span><span>▮▮▮&nbsp; Wi-Fi &nbsp;▰</span></div>
-<div class="header"><a class="back" href="14.html">‹</a><span class="title">よりそい中央クリニック</span></div>
-<div class="body">
-<p class="center-note">MediFlow　医療機関向けポータル　／　医療機関ID：MF-00128　　管理者</p>
-<div class="card"><p><strong>受付・会計</strong></p><p>バーコード読み取り／おくすり手帳登録</p><p><strong>診療</strong></p><p>患者カルテ</p><p><strong>病院管理</strong></p><p>マイページ／予約状況／予定管理／急患・遅延通知／病院情報確認</p><a class="link" style="text-align:left" href="15.html">バーコード読み取り</a><a class="link" style="text-align:left" href="16.html">おくすり手帳登録</a><a class="link" style="text-align:left" href="20.html">患者カルテ</a><a class="link" style="text-align:left" href="14.html">マイページ</a><a class="link" style="text-align:left" href="17.html">予約状況</a><a class="link" style="text-align:left" href="18.html">予定管理</a><a class="link" style="text-align:left" href="19.html">急患・遅延通知</a><a class="link" style="text-align:left" href="21.html">病院情報確認</a><a class="link" style="text-align:left" href="22.html">お問い合わせ</a><a class="link" style="text-align:left" href="23.html">Q &amp; A</a><a class="link" style="text-align:left" href="10.html">ログアウト</a><p class="lead">お困りですか？</p></div>
-<h1>マイページ</h1><p class="lead">受付・会計・診療の状況を確認し、各業務へ進めます。</p><p>2026年11月12日（木）　表示データ：サンプル</p><div class="card"><p>本日の予約</p><h1>18件</h1><p class="lead">診療予定の患者数</p></div><div class="card"><p>受付済み</p><h1>12人</h1><p class="lead">来院チェック済み</p></div><div class="card"><p>未受付</p><h1>6人</h1><p class="lead">来院待ちの予約</p></div><div class="card"><p>診療の遅延</p><h1>10分</h1><p class="lead">患者への通知を確認</p></div><div class="card"><p><strong>スムーズな受付で、診療に集中。</strong></p><p class="lead">受付用PCでバーコードを読み取り、来院を確認できます。</p><a class="btn-primary" href="15.html">バーコード読み取りへ</a></div><h1 style="font-size:20px">本日の予約患者</h1><a class="link" href="17.html">すべての予約を見る</a><div class="card"><p>09:00　鈴木 花子</p><p class="lead">内科　佐藤 美咲　MF-112001</p><p>✓ 受付済み</p><p>時間／患者名／診療科目／担当医師／予約番号／来院確認／診療・会計</p><a class="link" style="text-align:left" href="20.html">カルテ</a> <a class="link" style="text-align:left" href="16.html">おくすり</a> <a class="link" style="text-align:left" href="14.html">呼び出し</a></div><div class="card"><p>09:30　田中 一郎</p><p class="lead">内科　佐藤 美咲　MF-112002</p><p>✓ 受付済み</p><p>時間／患者名／診療科目／担当医師／予約番号／来院確認／診療・会計</p><a class="link" style="text-align:left" href="20.html">カルテ</a> <a class="link" style="text-align:left" href="16.html">おくすり</a> <a class="link" style="text-align:left" href="14.html">呼び出し</a></div><div class="card"><p>10:00　高橋 由美</p><p class="lead">皮膚科　山田 健一　MF-112003</p><p>□ 未受付</p><p>時間／患者名／診療科目／担当医師／予約番号／来院確認／診療・会計</p><a class="link" style="text-align:left" href="20.html">カルテ</a> <a class="link" style="text-align:left" href="16.html">おくすり</a> <a class="link" style="text-align:left" href="14.html">呼び出し</a></div><div class="card"><p>10:30　伊藤 太郎</p><p class="lead">内科　佐藤 美咲　MF-112004</p><p>□ 未受付</p><p>時間／患者名／診療科目／担当医師／予約番号／来院確認／診療・会計</p><a class="link" style="text-align:left" href="20.html">カルテ</a> <a class="link" style="text-align:left" href="16.html">おくすり</a> <a class="link" style="text-align:left" href="14.html">呼び出し</a></div><h1 style="font-size:20px">業務メニュー</h1><a class="btn-outline" href="16.html">おくすり手帳登録</a><a class="btn-outline" href="20.html">患者カルテ</a><a class="btn-outline" href="18.html">診療時間・医師勤務</a><a class="btn-outline" href="19.html">急患・遅延通知</a></div>
-<div class="homebar"></div>
-<p class="center-note" style="padding-bottom:16px"><a class="link" href="../index.html">一覧へ戻る</a></p>
+<div class="pc">
+<div class="layout">
+<aside class="sidebar">
+<div><p class="brand">MediFlow</p><p class="sub">医療機関向けポータル</p></div>
+<div class="navgroup"><p class="glabel">受付・会計</p><a href="15.html">バーコード読み取り</a><a href="16.html">おくすり手帳登録</a></div>
+<div class="navgroup"><p class="glabel">診療</p><a href="20.html">患者カルテ</a></div>
+<div><p class="glabel2">病院管理</p><a class="navitem active-light" href="14.html">マイページ</a><a class="navitem" href="17.html">予約状況</a><a class="navitem" href="18.html">予定管理</a><a class="navitem" href="19.html">急患・遅延通知</a><a class="navitem" href="21.html">病院情報確認</a></div>
+<div class="sidefoot"><p class="mut">お困りですか？</p><a class="navitem" href="22.html">お問い合わせ</a><a class="navitem" href="23.html">Q &amp; A</a><a class="navitem" href="10.html">ログアウト</a></div>
+</aside>
+<div class="maincol">
+<header class="apphead"><a class="clinic" href="14.html">よりそい中央クリニック</a><span class="meta">医療機関ID：MF-00128　　管理者</span></header>
+<main class="main">
+<div class="titlebar">
+<div><h1>マイページ</h1><p class="lead">受付・会計・診療の状況を確認し、各業務へ進めます。</p></div>
+<div class="datebox"><span class="datechip">2026年11月12日（木）</span><span class="lead">表示データ：サンプル</span></div>
+</div>
+<div class="cards4">
+<div class="stat"><p class="lbl">本日の予約</p><p class="num">18<small>件</small></p><p class="cap">診療予定の患者数</p></div>
+<div class="stat"><p class="lbl">受付済み</p><p class="num">12<small>人</small></p><p class="cap">来院チェック済み</p></div>
+<div class="stat"><p class="lbl">未受付</p><p class="num">6<small>人</small></p><p class="cap">来院待ちの予約</p></div>
+<div class="stat"><p class="lbl">診療の遅延</p><p class="num">10<small>分</small></p><p class="cap">患者への通知を確認</p></div>
+</div>
+<div class="banner"><div><p class="bt">スムーズな受付で、診療に集中。</p><p class="bs">受付用PCでバーコードを読み取り、来院を確認できます。</p></div><a class="btn-w" href="15.html">バーコード読み取りへ</a></div>
+<div class="panel">
+<div class="panelhead"><h2>本日の予約患者</h2><a class="btn-s" href="17.html">すべての予約を見る</a></div>
+<table>
+<tr><th>時間</th><th>患者名</th><th>診療科目</th><th>担当医師</th><th>予約番号</th><th>来院確認</th><th>診療・会計</th></tr>
+<tr><td>09:00</td><td>鈴木 花子</td><td>内科</td><td>佐藤 美咲</td><td>MF-112001</td><td>✓ 受付済み</td><td><a class="btn-xs" href="14.html">呼び出し</a> <a class="btn-xs" href="20.html">カルテ</a> <a class="btn-xs" href="16.html">おくすり</a></td></tr>
+<tr><td>09:30</td><td>田中 一郎</td><td>内科</td><td>佐藤 美咲</td><td>MF-112002</td><td>✓ 受付済み</td><td><a class="btn-xs" href="14.html">呼び出し</a> <a class="btn-xs" href="20.html">カルテ</a> <a class="btn-xs" href="16.html">おくすり</a></td></tr>
+<tr><td>10:00</td><td>高橋 由美</td><td>皮膚科</td><td>山田 健一</td><td>MF-112003</td><td>□ 未受付</td><td><a class="btn-xs" href="14.html">呼び出し</a> <a class="btn-xs" href="20.html">カルテ</a> <a class="btn-xs" href="16.html">おくすり</a></td></tr>
+<tr><td>10:30</td><td>伊藤 太郎</td><td>内科</td><td>佐藤 美咲</td><td>MF-112004</td><td>□ 未受付</td><td><a class="btn-xs" href="14.html">呼び出し</a> <a class="btn-xs" href="20.html">カルテ</a> <a class="btn-xs" href="16.html">おくすり</a></td></tr>
+</table>
+</div>
+<div class="panel">
+<div class="panelhead"><h2>業務メニュー</h2></div>
+<div class="menu4"><a href="16.html">おくすり手帳登録</a><a href="20.html">患者カルテ</a><a href="18.html">診療時間・医師勤務</a><a href="19.html">急患・遅延通知</a></div>
+</div>
+</main>
+<p class="footlink"><a href="../index.html">一覧へ戻る</a></p>
+</div>
+</div>
 </div>
 </body>
 </html>

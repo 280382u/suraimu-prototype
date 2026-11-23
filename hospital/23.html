@@ -1,22 +1,81 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>23 Q&A | MediFlow 病院側</title>
-<link rel="stylesheet" href="../assets/style.css">
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23 Q&A | MediFlow 病院側</title><link rel="stylesheet" href="../assets/style.css"><style>
+body{display:block;background:#e8efec}
+.hosp{width:min(1440px,100%);margin:0 auto;background:#f5f9f7;min-height:100vh;display:flex;flex-direction:column}
+.topbar{background:#fff;border-bottom:1px solid #dce7e2;min-height:80px;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:16px}
+.topbar .brand{font-size:20px;font-weight:700;color:#173e3a}
+.layout{display:flex;flex:1}
+.sidebar{width:250px;background:#173e3a;color:#eaf4f0;padding:24px 18px;display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+.sidebar .brand{font-size:20px;font-weight:700;color:#fff}
+.sidebar .sub{font-size:11px;color:#9fc4ba;letter-spacing:.12em;margin-bottom:4px}
+.sidebar .side-label{font-size:11px;color:#9fc4ba;letter-spacing:.08em;font-weight:700;margin:16px 12px 4px}
+.sidebar a{color:#eaf4f0;text-decoration:none;padding:10px 12px;border-radius:10px;font-size:14px;display:block}
+.sidebar a:hover,.sidebar a.active{background:#087f74;color:#fff}
+.sidebar .foot{margin-top:auto;font-size:12px;color:#9fc4ba;line-height:1.9;padding-top:20px}
+.sidebar .foot a{display:inline;padding:0;color:#fff;font-weight:700}
+.main{flex:1;padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.main h1{font-size:24px}
+.mut{color:#607671;font-size:13px;line-height:1.6}
+.panel{background:#fff;border:1px solid #dce7e2;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.panel h2{font-size:17px}
+.split{display:grid;grid-template-columns:1fr 380px;gap:16px;align-items:start}
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+@media(max-width:900px){.split,.split2{grid-template-columns:1fr}.sidebar{width:190px}}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:10px 12px;border-bottom:1px solid #eef4f1;text-align:left;vertical-align:top}
+th{background:#eef6f3;font-weight:700}
+.badge{display:inline-block;background:#e6f4f1;color:#087f74;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700}
+.badge.warn{background:#fff0ed;color:#b3402a}
+.badge.gray{background:#eef1f0;color:#607671}
+textarea,.field{background:#fff;border:1px solid #dce7e2;border-radius:12px;padding:12px 14px;font-size:14px;color:#173e3a;width:100%}
+textarea{min-height:110px;font-family:inherit;line-height:1.6}
+.field.ph{color:#607671}
+.alert{background:#fff0ed;border:1px solid #f0cfc8;border-radius:14px;padding:12px 16px;font-size:13px;line-height:1.6}
+.footlink{padding:14px 28px;font-size:13px}.footlink a{color:#087f74}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal .dow{text-align:center;font-weight:700;font-size:12px;color:#607671;padding:4px}
+.cal .day{background:#fff;border:1px solid #dce7e2;border-radius:10px;padding:8px;min-height:76px;font-size:12px;line-height:1.5}
+.cal .day .dnum{font-weight:700;font-size:14px}
+.cal .day.off{background:#f0f4f2;color:#93a49e}
+.cal .day.sel{border:2px solid #087f74;background:#e6f4f1}
+.chip{display:inline-block;border:1px solid #dce7e2;background:#fff;border-radius:999px;padding:8px 14px;font-size:13px}
+.chip.on{background:#087f74;color:#fff;border-color:#087f74;font-weight:700}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #eef4f1;font-size:14px}
+.frow:last-child{border-bottom:none}
+label{margin-bottom:0}
+.qa-q{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #eef4f1;font-size:14px}
+.qa-q:last-child{border-bottom:none}
+.qa-q .mark{font-weight:700;color:#087f74}
+.qa-q .tog{margin-left:auto;color:#607671;font-weight:700}
+.qa-a{font-size:13px;color:#607671;line-height:1.7;padding:0 0 12px 24px;border-bottom:1px solid #eef4f1}
+</style></head>
+<body><div class="hosp">
+<div class="topbar"><span class="brand">MediFlow</span><span>よりそい中央クリニック　／　医療機関ID：MF-00128　　管理者</span></div>
+<div class="layout"><aside class="sidebar"><div class="brand">MediFlow</div><div class="sub">医療機関向けポータル</div><p class="side-label">受付・会計</p><a href="15.html">バーコード読み取り</a><a href="16.html">おくすり手帳登録</a><p class="side-label">診療</p><a href="20.html">患者カルテ</a><p class="side-label">病院管理</p><a href="14.html">マイページ</a><a href="17.html">予約状況</a><a href="18.html">予定管理</a><a href="19.html">急患・遅延通知</a><a href="21.html">病院情報確認</a><div class="foot">お困りですか？<br><a href="22.html">お問い合わせ</a><br><a href="23.html">Q &amp; A</a><br><a href="10.html">ログアウト</a></div></aside><main class="main">
 
-</head>
-<body>
-<div class="phone">
-<div class="statusbar"><span>9:41</span><span>▮▮▮&nbsp; Wi-Fi &nbsp;▰</span></div>
-<div class="header"><a class="back" href="14.html">‹</a><span class="title">よりそい中央クリニック</span></div>
-<div class="body">
-<p class="center-note">MediFlow　医療機関向けポータル　／　医療機関ID：MF-00128　　管理者</p>
-<div class="card"><p><strong>受付・会計</strong></p><p>バーコード読み取り／おくすり手帳登録</p><p><strong>診療</strong></p><p>患者カルテ</p><p><strong>病院管理</strong></p><p>マイページ／予約状況／予定管理／急患・遅延通知／病院情報確認</p><a class="link" style="text-align:left" href="15.html">バーコード読み取り</a><a class="link" style="text-align:left" href="16.html">おくすり手帳登録</a><a class="link" style="text-align:left" href="20.html">患者カルテ</a><a class="link" style="text-align:left" href="14.html">マイページ</a><a class="link" style="text-align:left" href="17.html">予約状況</a><a class="link" style="text-align:left" href="18.html">予定管理</a><a class="link" style="text-align:left" href="19.html">急患・遅延通知</a><a class="link" style="text-align:left" href="21.html">病院情報確認</a><a class="link" style="text-align:left" href="22.html">お問い合わせ</a><a class="link" style="text-align:left" href="23.html">Q &amp; A</a><a class="link" style="text-align:left" href="10.html">ログアウト</a><p class="lead">お困りですか？</p></div>
-<p class="eyebrow">QUESTIONS &amp; ANSWERS</p><h1>Q &amp; A</h1><p class="lead">MediFlowの操作でお困りの際は、よくあるご質問と回答をご確認ください。</p><h1 style="font-size:18px">受付・予約について</h1><div class="card"><p><strong>Q</strong>　バーコードが読み取れないときはどうすればよいですか？</p><p class="lead">「バーコード読み取り」の「予約番号を手入力」から予約番号を入力し、「予約を確認」を押してください。氏名と予約日時を確認してから受付してください。 −</p></div><div class="card"><p><strong>Q</strong>　患者の予約状況はどこで確認できますか？</p><p class="lead">＋</p></div><h1 style="font-size:18px">診療・予定管理について</h1><div class="card"><p><strong>Q</strong>　診療時間や医師の勤務予定はどこで変更できますか？</p><p class="lead">＋</p></div><div class="card"><p><strong>Q</strong>　診療の遅延を患者へ知らせるにはどうすればよいですか？</p><p class="lead">＋</p></div><h1 style="font-size:18px">登録情報・ログインについて</h1><div class="card"><p><strong>Q</strong>　病院名やメールアドレスを変更するにはどうすればよいですか？</p><p class="lead">＋</p></div><div class="card"><p><strong>Q</strong>　パスワードを忘れてしまいました。</p><p class="lead">＋</p></div><div class="card"><p><strong>よくあるご質問</strong></p><p class="lead">受付業務や診療管理、登録情報に関するご質問をまとめています。</p><p><strong>解決しない場合は</strong></p><p class="lead">お探しの回答が見つからない場合は、お問い合わせフォームからご相談ください。</p><a class="btn-primary" href="22.html">お問い合わせフォームへ</a><p><strong>お問い合わせ時のお願い</strong></p><p class="lead">お困りの画面名や操作手順、ご利用環境をお知らせいただくと、状況を確認しやすくなります。患者さまの個人情報・診療情報やパスワードは入力しないでください。</p></div></div>
-<div class="homebar"></div>
-<p class="center-note" style="padding-bottom:16px"><a class="link" href="../index.html">一覧へ戻る</a></p>
+<div><p class="eyebrow">QUESTIONS &amp; ANSWERS</p><h1>Q&amp;A</h1><p class="mut">MediFlowの操作でお困りの際は、よくあるご質問と回答をご確認ください。</p></div>
+<div class="split">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="panel"><h2>受付・予約について</h2>
+<div class="qa-q"><span class="mark">Q</span><span>バーコードが読み取れないときはどうすればよいですか？</span><span class="tog">−</span></div><p class="qa-a">「バーコード読み取り」の「予約番号を手入力」から予約番号を入力し、「予約を確認」を押してください。氏名と予約日時を確認してから受付してください。</p>
+<div class="qa-q"><span class="mark">Q</span><span>患者の予約状況はどこで確認できますか？</span><span class="tog">＋</span></div>
 </div>
-</body>
-</html>
+<div class="panel"><h2>診療・予定管理について</h2>
+<div class="qa-q"><span class="mark">Q</span><span>診療時間や医師の勤務予定はどこで変更できますか？</span><span class="tog">＋</span></div>
+<div class="qa-q"><span class="mark">Q</span><span>診療の遅延を患者へ知らせるにはどうすればよいですか？</span><span class="tog">＋</span></div>
+</div>
+<div class="panel"><h2>登録情報・ログインについて</h2>
+<div class="qa-q"><span class="mark">Q</span><span>病院名やメールアドレスを変更するにはどうすればよいですか？</span><span class="tog">＋</span></div>
+<div class="qa-q"><span class="mark">Q</span><span>パスワードを忘れてしまいました。</span><span class="tog">＋</span></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="panel"><p class="eyebrow">QUESTIONS &amp; ANSWERS</p><h2>よくあるご質問</h2><p class="mut">受付業務や診療管理、登録情報に関するご質問をまとめています。</p></div>
+<div class="panel"><h2>解決しない場合は</h2><p class="mut">お探しの回答が見つからない場合は、お問い合わせフォームからご相談ください。</p><a class="btn-primary" href="22.html">お問い合わせフォームへ</a></div>
+<div class="panel"><h2>お問い合わせ時のお願い</h2><p class="mut">お困りの画面名や操作手順、ご利用環境をお知らせいただくと、状況を確認しやすくなります。<br>患者さまの個人情報・診療情報やパスワードは入力しないでください。</p></div>
+</div>
+</div>
+
+</main></div>
+<footer class="footlink"><a href="../index.html">← 画面一覧へ戻る</a></footer></div></body></html>

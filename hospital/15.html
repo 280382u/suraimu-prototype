@@ -5,18 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>15 バーコード読み取り | MediFlow 病院側</title>
 <link rel="stylesheet" href="../assets/style.css">
-
+<style>
+body{display:block;background:#e8efec}
+.pc{width:min(1440px,100%);margin:0 auto;background:#f5f9f7;min-height:100vh;display:flex;flex-direction:column}
+.layout{display:flex;flex:1;align-items:stretch}
+.sidebar{width:248px;background:#fff;border-right:1px solid #dce7e2;padding:25px 16px;display:flex;flex-direction:column;gap:20px;flex-shrink:0}
+.sidebar .brand{font-size:26px;font-weight:700;padding:0 12px}
+.sidebar .sub{font-size:12px;color:#607671;padding:2px 12px 0}
+.navgroup{background:#e4f3ec;border-radius:14px;padding:14px 8px 8px;display:flex;flex-direction:column;gap:2px}
+.glabel{font-weight:700;font-size:14px;padding:0 10px 8px}
+.glabel2{font-weight:700;font-size:14px;padding:0 10px 8px}
+.navgroup a,.navitem{display:block;padding:12px 10px;border-radius:9px;color:#173e3a;text-decoration:none;font-size:14px}
+.navgroup a:hover,.navitem:hover{background:#eef6f3}
+a.active{background:#087f74;color:#fff;font-weight:700}
+.sidefoot{margin-top:auto;display:flex;flex-direction:column;gap:2px}
+.sidefoot .mut{color:#607671;font-size:13px;padding:0 10px 6px}
+.maincol{flex:1;display:flex;flex-direction:column;min-width:0}
+.apphead{height:80px;background:#fff;border-bottom:1px solid #dce7e2;display:flex;align-items:center;justify-content:space-between;padding:0 32px}
+.apphead .clinic{font-size:20px;font-weight:700;color:#173e3a;text-decoration:none}
+.apphead .meta{font-size:13px;color:#607671}
+.main{flex:1;padding:32px;display:flex;flex-direction:column;gap:20px}
+.main h1{font-size:26px}
+.split{display:grid;grid-template-columns:1fr 354px;gap:24px;align-items:start}
+.panel{background:#fff;border-radius:14px;padding:24px 28px;display:flex;flex-direction:column;gap:16px}
+.chip{background:#e4f3ec;border-radius:8px;padding:5px 14px;font-size:13px;font-weight:700;color:#087f74;display:inline-block;align-self:flex-start}
+.scan-title{font-size:24px;font-weight:700;text-align:center}
+.scan-lead{text-align:center;color:#607671;font-size:14px}
+.dashed{border:1px dashed #dce8e2;background:#f5f9f7;border-radius:20px;padding:40px 24px;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.barcode{font-size:52px;letter-spacing:5px;line-height:1}
+.manual{display:flex;gap:14px;align-items:flex-end}
+.manual .grow{flex:1}
+.btn-m{background:#fff;border:1px solid #dce8e2;border-radius:10px;padding:13px 26px;font-size:14px;font-weight:700;color:#173e3a;text-decoration:none;white-space:nowrap}
+.panel h2{font-size:18px}
+.step{display:flex;flex-direction:column;gap:4px}
+.step .no{color:#087f74;font-weight:700;font-size:13px}
+.step .st{font-weight:700;font-size:15px}
+.okbox{background:#e4f3ec;border-radius:14px;padding:16px;font-size:13px;line-height:1.6}
+.okbox .t{font-weight:700;margin-bottom:4px}
+.footlink{padding:0 32px 18px;font-size:13px}.footlink a{color:#087f74}
+@media(max-width:1000px){.split{grid-template-columns:1fr}.sidebar{width:200px}}
+</style>
 </head>
 <body>
-<div class="phone">
-<div class="statusbar"><span>9:41</span><span>▮▮▮&nbsp; Wi-Fi &nbsp;▰</span></div>
-<div class="header"><a class="back" href="14.html">‹</a><span class="title">よりそい中央クリニック</span></div>
-<div class="body">
-<p class="center-note">MediFlow　医療機関向けポータル　／　医療機関ID：MF-00128　　管理者</p>
-<div class="card"><p><strong>受付・会計</strong></p><p>バーコード読み取り／おくすり手帳登録</p><p><strong>診療</strong></p><p>患者カルテ</p><p><strong>病院管理</strong></p><p>マイページ／予約状況／予定管理／急患・遅延通知／病院情報確認</p><a class="link" style="text-align:left" href="15.html">バーコード読み取り</a><a class="link" style="text-align:left" href="16.html">おくすり手帳登録</a><a class="link" style="text-align:left" href="20.html">患者カルテ</a><a class="link" style="text-align:left" href="14.html">マイページ</a><a class="link" style="text-align:left" href="17.html">予約状況</a><a class="link" style="text-align:left" href="18.html">予定管理</a><a class="link" style="text-align:left" href="19.html">急患・遅延通知</a><a class="link" style="text-align:left" href="21.html">病院情報確認</a><a class="link" style="text-align:left" href="22.html">お問い合わせ</a><a class="link" style="text-align:left" href="23.html">Q &amp; A</a><a class="link" style="text-align:left" href="10.html">ログアウト</a><p class="lead">お困りですか？</p></div>
-<h1>バーコード読み取り</h1><p class="lead">受付用PC　／　患者の予約バーコードを読み取ってください。</p><p>受付端末：待機中</p><div class="card" style="text-align:center;padding:32px 16px"><p style="font-size:40px;letter-spacing:4px">▮▮ ▮▮▮ ▮ ▮▮</p><p><strong>バーコードをかざしてください</strong></p><p class="lead">予約確認画面のバーコードを、スキャナーにかざしてください。</p><p>読み取り待機中</p><p class="lead">バーコードスキャナーをご利用ください</p></div><h1 style="font-size:20px">バーコードが読み取れない場合</h1><p class="lead">予約番号を手入力</p><div><label>予約番号</label><div class="input"><span>例：MF-112001</span></div></div><a class="btn-primary" href="14.html">予約を確認</a><h1 style="font-size:20px">受付の流れ</h1><div class="card"><p><strong>01　バーコードを提示</strong></p><p class="lead">患者の予約確認画面を開きます。</p><p><strong>02　スキャナーで読み取り</strong></p><p class="lead">バーコードをかざして読み取ります。</p><p><strong>03　結果を確認</strong></p><p class="lead">受付完了後、待合室をご案内します。</p></div><div class="notice">確認のお願い<br>氏名と予約日時を確認してから、患者をご案内ください。</div></div>
-<div class="homebar"></div>
-<p class="center-note" style="padding-bottom:16px"><a class="link" href="../index.html">一覧へ戻る</a></p>
+<div class="pc">
+<div class="layout">
+<aside class="sidebar">
+<div><p class="brand">MediFlow</p><p class="sub">医療機関向けポータル</p></div>
+<div class="navgroup"><p class="glabel">受付・会計</p><a class="active" href="15.html">バーコード読み取り</a><a href="16.html">おくすり手帳登録</a></div>
+<div class="navgroup"><p class="glabel">診療</p><a href="20.html">患者カルテ</a></div>
+<div><p class="glabel2">病院管理</p><a class="navitem" href="14.html">マイページ</a><a class="navitem" href="17.html">予約状況</a><a class="navitem" href="18.html">予定管理</a><a class="navitem" href="19.html">急患・遅延通知</a><a class="navitem" href="21.html">病院情報確認</a></div>
+<div class="sidefoot"><p class="mut">お困りですか？</p><a class="navitem" href="22.html">お問い合わせ</a><a class="navitem" href="23.html">Q &amp; A</a><a class="navitem" href="10.html">ログアウト</a></div>
+</aside>
+<div class="maincol">
+<header class="apphead"><a class="clinic" href="14.html">よりそい中央クリニック</a><span class="meta">医療機関ID：MF-00128　　管理者</span></header>
+<main class="main">
+<div><h1>バーコード読み取り</h1><p class="lead">受付用PC　／　患者の予約バーコードを読み取ってください。</p></div>
+<div class="split">
+<div class="panel">
+<span class="chip">受付端末：待機中</span>
+<p class="scan-title">バーコードをかざしてください</p>
+<p class="scan-lead">予約確認画面のバーコードを、スキャナーにかざしてください。</p>
+<div class="dashed"><p class="barcode">▮▮ ▮▮▮ ▮ ▮▮</p><p><strong>読み取り待機中</strong></p><p class="lead">バーコードスキャナーをご利用ください</p></div>
+<div>
+<p style="font-weight:700;margin-bottom:6px">バーコードが読み取れない場合</p>
+<p class="lead" style="margin-bottom:12px">予約番号を手入力</p>
+<div class="manual">
+<div class="grow"><label>予約番号</label><div class="input"><span>例：MF-112001</span></div></div>
+<a class="btn-m" href="14.html">予約を確認</a>
+</div>
+</div>
+</div>
+<div class="panel">
+<h2>受付の流れ</h2>
+<div class="step"><p class="no">01</p><p class="st">バーコードを提示</p><p class="lead">患者の予約確認画面を開きます。</p></div>
+<div class="step"><p class="no">02</p><p class="st">スキャナーで読み取り</p><p class="lead">バーコードをかざして読み取ります。</p></div>
+<div class="step"><p class="no">03</p><p class="st">結果を確認</p><p class="lead">受付完了後、待合室をご案内します。</p></div>
+<div class="okbox"><p class="t">確認のお願い</p><p>氏名と予約日時を確認してから、患者をご案内ください。</p></div>
+</div>
+</div>
+</main>
+<p class="footlink"><a href="../index.html">一覧へ戻る</a></p>
+</div>
+</div>
 </div>
 </body>
 </html>

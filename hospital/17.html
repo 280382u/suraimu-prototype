@@ -1,22 +1,68 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>17 予約状況 | MediFlow 病院側</title>
-<link rel="stylesheet" href="../assets/style.css">
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>17 予約状況 | MediFlow 病院側</title><link rel="stylesheet" href="../assets/style.css"><style>
+body{display:block;background:#e8efec}
+.hosp{width:min(1440px,100%);margin:0 auto;background:#f5f9f7;min-height:100vh;display:flex;flex-direction:column}
+.topbar{background:#fff;border-bottom:1px solid #dce7e2;min-height:80px;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:16px}
+.topbar .brand{font-size:20px;font-weight:700;color:#173e3a}
+.layout{display:flex;flex:1}
+.sidebar{width:250px;background:#173e3a;color:#eaf4f0;padding:24px 18px;display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+.sidebar .brand{font-size:20px;font-weight:700;color:#fff}
+.sidebar .sub{font-size:11px;color:#9fc4ba;letter-spacing:.12em;margin-bottom:4px}
+.sidebar .side-label{font-size:11px;color:#9fc4ba;letter-spacing:.08em;font-weight:700;margin:16px 12px 4px}
+.sidebar a{color:#eaf4f0;text-decoration:none;padding:10px 12px;border-radius:10px;font-size:14px;display:block}
+.sidebar a:hover,.sidebar a.active{background:#087f74;color:#fff}
+.sidebar .foot{margin-top:auto;font-size:12px;color:#9fc4ba;line-height:1.9;padding-top:20px}
+.sidebar .foot a{display:inline;padding:0;color:#fff;font-weight:700}
+.main{flex:1;padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.main h1{font-size:24px}
+.mut{color:#607671;font-size:13px;line-height:1.6}
+.panel{background:#fff;border:1px solid #dce7e2;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.panel h2{font-size:17px}
+.split{display:grid;grid-template-columns:1fr 380px;gap:16px;align-items:start}
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+@media(max-width:900px){.split,.split2{grid-template-columns:1fr}.sidebar{width:190px}}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:10px 12px;border-bottom:1px solid #eef4f1;text-align:left;vertical-align:top}
+th{background:#eef6f3;font-weight:700}
+.badge{display:inline-block;background:#e6f4f1;color:#087f74;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700}
+.badge.warn{background:#fff0ed;color:#b3402a}
+.badge.gray{background:#eef1f0;color:#607671}
+textarea,.field{background:#fff;border:1px solid #dce7e2;border-radius:12px;padding:12px 14px;font-size:14px;color:#173e3a;width:100%}
+textarea{min-height:110px;font-family:inherit;line-height:1.6}
+.field.ph{color:#607671}
+.alert{background:#fff0ed;border:1px solid #f0cfc8;border-radius:14px;padding:12px 16px;font-size:13px;line-height:1.6}
+.footlink{padding:14px 28px;font-size:13px}.footlink a{color:#087f74}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal .dow{text-align:center;font-weight:700;font-size:12px;color:#607671;padding:4px}
+.cal .day{background:#fff;border:1px solid #dce7e2;border-radius:10px;padding:8px;min-height:76px;font-size:12px;line-height:1.5}
+.cal .day .dnum{font-weight:700;font-size:14px}
+.cal .day.off{background:#f0f4f2;color:#93a49e}
+.cal .day.sel{border:2px solid #087f74;background:#e6f4f1}
+.chip{display:inline-block;border:1px solid #dce7e2;background:#fff;border-radius:999px;padding:8px 14px;font-size:13px}
+.chip.on{background:#087f74;color:#fff;border-color:#087f74;font-weight:700}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #eef4f1;font-size:14px}
+.frow:last-child{border-bottom:none}
+label{margin-bottom:0}
+.qa-q{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #eef4f1;font-size:14px}
+.qa-q:last-child{border-bottom:none}
+.qa-q .mark{font-weight:700;color:#087f74}
+.qa-q .tog{margin-left:auto;color:#607671;font-weight:700}
+.qa-a{font-size:13px;color:#607671;line-height:1.7;padding:0 0 12px 24px;border-bottom:1px solid #eef4f1}
+</style></head>
+<body><div class="hosp">
+<div class="topbar"><span class="brand">MediFlow</span><span>よりそい中央クリニック　／　医療機関ID：MF-00128　　管理者</span></div>
+<div class="layout"><aside class="sidebar"><div class="brand">MediFlow</div><div class="sub">医療機関向けポータル</div><p class="side-label">受付・会計</p><a href="15.html">バーコード読み取り</a><a href="16.html">おくすり手帳登録</a><p class="side-label">診療</p><a href="20.html">患者カルテ</a><p class="side-label">病院管理</p><a href="14.html">マイページ</a><a href="17.html" class="active">予約状況</a><a href="18.html">予定管理</a><a href="19.html">急患・遅延通知</a><a href="21.html">病院情報確認</a><div class="foot">お困りですか？<br><a href="22.html">お問い合わせ</a><br><a href="23.html">Q &amp; A</a><br><a href="10.html">ログアウト</a></div></aside><main class="main">
 
-</head>
-<body>
-<div class="phone">
-<div class="statusbar"><span>9:41</span><span>▮▮▮&nbsp; Wi-Fi &nbsp;▰</span></div>
-<div class="header"><a class="back" href="14.html">‹</a><span class="title">よりそい中央クリニック</span></div>
-<div class="body">
-<p class="center-note">MediFlow　医療機関向けポータル　／　医療機関ID：MF-00128　　管理者</p>
-<div class="card"><p><strong>受付・会計</strong></p><p>バーコード読み取り／おくすり手帳登録</p><p><strong>診療</strong></p><p>患者カルテ</p><p><strong>病院管理</strong></p><p>マイページ／予約状況／予定管理／急患・遅延通知／病院情報確認</p><a class="link" style="text-align:left" href="15.html">バーコード読み取り</a><a class="link" style="text-align:left" href="16.html">おくすり手帳登録</a><a class="link" style="text-align:left" href="20.html">患者カルテ</a><a class="link" style="text-align:left" href="14.html">マイページ</a><a class="link" style="text-align:left" href="17.html">予約状況</a><a class="link" style="text-align:left" href="18.html">予定管理</a><a class="link" style="text-align:left" href="19.html">急患・遅延通知</a><a class="link" style="text-align:left" href="21.html">病院情報確認</a><a class="link" style="text-align:left" href="22.html">お問い合わせ</a><a class="link" style="text-align:left" href="23.html">Q &amp; A</a><a class="link" style="text-align:left" href="10.html">ログアウト</a><p class="lead">お困りですか？</p></div>
-<h1>予約状況</h1><p class="lead">カレンダーで日ごとの予約を確認し、患者の来院をチェックできます。</p><a class="link" href="19.html">急患・遅延通知</a><div class="card"><p>‹　<strong>2026年11月</strong>　›　今日</p><p>すべての診療科目　⌄　／　月表示</p><p class="lead">日　月　火　水　木　金　土</p><p class="lead">緑：選択日　　日曜日：休診</p></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px"><div class="card" style="padding:8px"><p><strong>1</strong></p><p class="lead" style="font-size:11px">休診</p></div><div class="card" style="padding:8px"><p><strong>2</strong></p><p class="lead" style="font-size:11px">14件の予約 受付 0 / 14</p></div><div class="card" style="padding:8px"><p><strong>3</strong></p><p class="lead" style="font-size:11px">17件の予約 受付 0 / 17</p></div><div class="card" style="padding:8px"><p><strong>4</strong></p><p class="lead" style="font-size:11px">20件の予約 受付 0 / 20</p></div><div class="card" style="padding:8px"><p><strong>5</strong></p><p class="lead" style="font-size:11px">23件の予約 受付 0 / 23</p></div><div class="card" style="padding:8px"><p><strong>6</strong></p><p class="lead" style="font-size:11px">8件の予約 受付 0 / 8</p></div><div class="card" style="padding:8px"><p><strong>7</strong></p><p class="lead" style="font-size:11px">11件の予約 受付 0 / 11</p></div><div class="card" style="padding:8px"><p><strong>8</strong></p><p class="lead" style="font-size:11px">休診</p></div><div class="card" style="padding:8px"><p><strong>9</strong></p><p class="lead" style="font-size:11px">17件の予約 受付 0 / 17</p></div><div class="card" style="padding:8px"><p><strong>10</strong></p><p class="lead" style="font-size:11px">20件の予約 受付 0 / 20</p></div><div class="card" style="padding:8px"><p><strong>11</strong></p><p class="lead" style="font-size:11px">23件の予約 受付 0 / 23</p></div><div class="card" style="padding:8px"><p><strong>12</strong></p><p class="lead" style="font-size:11px">18件の予約 受付 12 / 18</p></div><div class="card" style="padding:8px"><p><strong>13</strong></p><p class="lead" style="font-size:11px">11件の予約 受付 0 / 11</p></div><div class="card" style="padding:8px"><p><strong>14</strong></p><p class="lead" style="font-size:11px">14件の予約 受付 0 / 14</p></div><div class="card" style="padding:8px"><p><strong>15</strong></p><p class="lead" style="font-size:11px">休診</p></div><div class="card" style="padding:8px"><p><strong>16</strong></p><p class="lead" style="font-size:11px">20件の予約 受付 0 / 20</p></div><div class="card" style="padding:8px"><p><strong>17</strong></p><p class="lead" style="font-size:11px">23件の予約 受付 0 / 23</p></div><div class="card" style="padding:8px"><p><strong>18</strong></p><p class="lead" style="font-size:11px">8件の予約 受付 0 / 8</p></div><div class="card" style="padding:8px"><p><strong>19</strong></p><p class="lead" style="font-size:11px">11件の予約 受付 0 / 11</p></div><div class="card" style="padding:8px"><p><strong>20</strong></p><p class="lead" style="font-size:11px">14件の予約 受付 0 / 14</p></div><div class="card" style="padding:8px"><p><strong>21</strong></p><p class="lead" style="font-size:11px">17件の予約 受付 0 / 17</p></div><div class="card" style="padding:8px"><p><strong>22</strong></p><p class="lead" style="font-size:11px">休診</p></div><div class="card" style="padding:8px"><p><strong>23</strong></p><p class="lead" style="font-size:11px">23件の予約 受付 0 / 23</p></div><div class="card" style="padding:8px"><p><strong>24</strong></p><p class="lead" style="font-size:11px">8件の予約 受付 0 / 8</p></div><div class="card" style="padding:8px"><p><strong>25</strong></p><p class="lead" style="font-size:11px">11件の予約 受付 0 / 11</p></div><div class="card" style="padding:8px"><p><strong>26</strong></p><p class="lead" style="font-size:11px">14件の予約 受付 0 / 14</p></div><div class="card" style="padding:8px"><p><strong>27</strong></p><p class="lead" style="font-size:11px">17件の予約 受付 0 / 17</p></div><div class="card" style="padding:8px"><p><strong>28</strong></p><p class="lead" style="font-size:11px">20件の予約 受付 0 / 20</p></div><div class="card" style="padding:8px"><p><strong>29</strong></p><p class="lead" style="font-size:11px">休診</p></div><div class="card" style="padding:8px"><p><strong>30</strong></p><p class="lead" style="font-size:11px">8件の予約 受付 0 / 8</p></div></div><p class="center-note">1–4 / 18件　　‹　1　2　3　4　5　›</p><h1 style="font-size:20px">11月12日（木）の予約</h1><p>予約18件　／　受付済み12人</p><p class="lead">来院済みにチェック</p><div class="card"><p>09:00　鈴木 花子</p><p class="lead">内科　佐藤 美咲</p><p>✓ 受付済み</p><a class="link" style="text-align:left" href="20.html">カルテ</a></div><div class="card"><p>09:30　田中 一郎</p><p class="lead">内科　佐藤 美咲</p><p>✓ 受付済み</p><a class="link" style="text-align:left" href="20.html">カルテ</a></div><div class="card"><p>10:00　高橋 由美</p><p class="lead">皮膚科　山田 健一</p><p>□ 来院チェック</p><a class="link" style="text-align:left" href="20.html">カルテ</a></div><div class="card"><p>10:30　伊藤 太郎</p><p class="lead">内科　佐藤 美咲</p><p>□ 来院チェック</p><a class="link" style="text-align:left" href="20.html">カルテ</a></div><p class="center-note">表示データ：サンプル　｜　受付済みの状態は来院チェックで管理します。</p></div>
-<div class="homebar"></div>
-<p class="center-note" style="padding-bottom:16px"><a class="link" href="../index.html">一覧へ戻る</a></p>
-</div>
-</body>
-</html>
+<div><p class="eyebrow">病院管理</p><h1>予約状況</h1><p class="mut">カレンダーで日ごとの予約を確認し、患者の来院をチェックできます。</p></div>
+<p><a class="btn-outline" style="max-width:280px" href="19.html">急患・遅延通知</a></p>
+<div class="panel"><div class="frow"><span>‹　<strong>2026年11月</strong>　›</span><span class="badge">今日</span><span>すべての診療科目　⌄　／　月表示</span></div>
+<div class="cal"><div class="dow">日</div><div class="dow">月</div><div class="dow">火</div><div class="dow">水</div><div class="dow">木</div><div class="dow">金</div><div class="dow">土</div><div class="day off"><span class="dnum">1</span><br>休診</div><div class="day"><span class="dnum">2</span><br>14件の予約<br>受付 0 / 14</div><div class="day"><span class="dnum">3</span><br>17件の予約<br>受付 0 / 17</div><div class="day"><span class="dnum">4</span><br>20件の予約<br>受付 0 / 20</div><div class="day"><span class="dnum">5</span><br>23件の予約<br>受付 0 / 23</div><div class="day"><span class="dnum">6</span><br>8件の予約<br>受付 0 / 8</div><div class="day"><span class="dnum">7</span><br>11件の予約<br>受付 0 / 11</div><div class="day off"><span class="dnum">8</span><br>休診</div><div class="day"><span class="dnum">9</span><br>17件の予約<br>受付 0 / 17</div><div class="day"><span class="dnum">10</span><br>20件の予約<br>受付 0 / 20</div><div class="day"><span class="dnum">11</span><br>23件の予約<br>受付 0 / 23</div><div class="day sel"><span class="dnum">12</span><br>18件の予約<br>受付 12 / 18</div><div class="day"><span class="dnum">13</span><br>11件の予約<br>受付 0 / 11</div><div class="day"><span class="dnum">14</span><br>14件の予約<br>受付 0 / 14</div><div class="day off"><span class="dnum">15</span><br>休診</div><div class="day"><span class="dnum">16</span><br>20件の予約<br>受付 0 / 20</div><div class="day"><span class="dnum">17</span><br>23件の予約<br>受付 0 / 23</div><div class="day"><span class="dnum">18</span><br>8件の予約<br>受付 0 / 8</div><div class="day"><span class="dnum">19</span><br>11件の予約<br>受付 0 / 11</div><div class="day"><span class="dnum">20</span><br>14件の予約<br>受付 0 / 14</div><div class="day"><span class="dnum">21</span><br>17件の予約<br>受付 0 / 17</div><div class="day off"><span class="dnum">22</span><br>休診</div><div class="day"><span class="dnum">23</span><br>23件の予約<br>受付 0 / 23</div><div class="day"><span class="dnum">24</span><br>8件の予約<br>受付 0 / 8</div><div class="day"><span class="dnum">25</span><br>11件の予約<br>受付 0 / 11</div><div class="day"><span class="dnum">26</span><br>14件の予約<br>受付 0 / 14</div><div class="day"><span class="dnum">27</span><br>17件の予約<br>受付 0 / 17</div><div class="day"><span class="dnum">28</span><br>20件の予約<br>受付 0 / 20</div><div class="day off"><span class="dnum">29</span><br>休診</div><div class="day"><span class="dnum">30</span><br>8件の予約<br>受付 0 / 8</div></div>
+<p class="mut">緑：選択日　　日曜日：休診</p></div>
+<div class="panel"><h2>11月12日（木）の予約</h2><p>予約18件　／　受付済み12人　<span class="mut">来院済みにチェック</span></p>
+<table><tr><th>時刻</th><th>患者</th><th>診療科・担当</th><th>受付</th><th></th></tr><tr><td>09:00</td><td><strong>鈴木 花子</strong></td><td>内科　佐藤 美咲</td><td><span class="badge">✓ 受付済み</span></td><td><a class="link" style="text-align:left" href="20.html">カルテ</a></td></tr><tr><td>09:30</td><td><strong>田中 一郎</strong></td><td>内科　佐藤 美咲</td><td><span class="badge">✓ 受付済み</span></td><td><a class="link" style="text-align:left" href="20.html">カルテ</a></td></tr><tr><td>10:00</td><td><strong>高橋 由美</strong></td><td>皮膚科　山田 健一</td><td><span class="badge gray">□ 来院チェック</span></td><td><a class="link" style="text-align:left" href="20.html">カルテ</a></td></tr><tr><td>10:30</td><td><strong>伊藤 太郎</strong></td><td>内科　佐藤 美咲</td><td><span class="badge gray">□ 来院チェック</span></td><td><a class="link" style="text-align:left" href="20.html">カルテ</a></td></tr></table>
+<p class="mut">1–4 / 18件　　‹　1　2　3　4　5　›</p></div>
+<p class="mut">表示データ：サンプル　｜　受付済みの状態は来院チェックで管理します。</p>
+
+</main></div>
+<footer class="footlink"><a href="../index.html">← 画面一覧へ戻る</a></footer></div></body></html>
