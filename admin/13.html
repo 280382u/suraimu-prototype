@@ -34,19 +34,41 @@ textarea{min-height:110px;font-family:inherit;line-height:1.6}
 .footlink{padding:14px 28px;font-size:13px}.footlink a{color:#087f74}
 .auth{width:min(1100px,92%);margin:40px auto;background:#fff;border:1px solid #dce7e2;border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
 @media(max-width:800px){.auth{grid-template-columns:1fr}}
+.backlink{color:#087f79;font-size:12px;font-weight:700;text-decoration:none}
+.hintrow{display:flex;justify-content:space-between;gap:12px}
+.sidecol{display:flex;flex-direction:column;gap:16px}
+.guide{background:#e8f4f2;border:1px solid #dce7e2;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.guide .gnum{color:#087f79;font-weight:700;font-size:12px}
+.guide .gitem{display:flex;gap:10px}
+.guide .ghead{font-weight:700;font-size:13px}
+.seg{display:flex;gap:0}
+.seg div{flex:1;text-align:center;padding:11px 0;font-size:13px;border:1px solid #dce4ea;background:#f5f7fa;color:#657786}
+.seg div:first-child{border-radius:6px 0 0 6px}
+.seg div:last-child{border-radius:0 6px 6px 0}
+.seg .on{background:#e8f4f2;border-color:#087f79;color:#087f79;font-weight:700}
+.actionbar{background:#fff;border:1px solid #dce7e2;border-radius:16px;padding:18px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-danger{background:#dc2626;color:#fff;text-align:center;padding:15px 32px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;display:block}
 </style></head>
 <body><div class="admin">
 <div class="topbar"><span><strong>MediFlow</strong> 管理コンソール</span><span class="env">本番環境</span></div>
-<div class="layout"><aside class="sidebar"><div class="brand">MediFlow</div><div class="sub">医療連携プラットフォーム</div><div class="sub">ADMIN CONSOLE</div><a href="02.html" class="">01 ダッシュボード</a><a href="03.html" class="">02 アカウント管理</a><a href="04.html" class="">03 予約・問診データ連携</a><a href="05.html" class="">04 AIチャット管理</a><a href="11.html" class="active">05 Q&A管理</a><a href="07.html" class="">06 システム・障害管理</a><a href="08.html" class="">07 お問い合わせ管理</a><div class="foot">医療データを、安全につなぐ。<br><a href="09.html" style="padding:0;color:#fff;font-weight:700">ログアウト</a></div></aside><main class="main"><div><p class="eyebrow">ADMIN CONSOLE</p><h1>Q&A編集</h1><p class="mut">登録済みのよくある質問と回答を編集します。</p></div>
-<p style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn-outline" href="10.html">Q&A作成</a><a class="btn-outline" href="11.html">Q&A一覧・病院用</a><a class="btn-outline" href="12.html">Q&A一覧・利用者用</a></p>
-<div class="split"><div class="panel"><p style="font-weight:700">質問と回答を編集</p><p class="mut">利用者にわかりやすい、具体的な内容を入力してください。</p>
-<div><label>質問 <span class="badge warn">必須</span></label><div class="field">予約の変更・キャンセルはどこからできますか？</div><p class="mut">利用者が実際に尋ねる表現で入力してください。</p></div>
-<div><label>回答</label><textarea>マイページの「予約一覧」から対象の予約を選び、変更・キャンセルのお手続きができます。
-当日の変更やキャンセルについては、予約先の医療機関へ直接お問い合わせください。</textarea><p class="mut">改行を使用できます。個人情報や診断にあたる内容は含めないでください。</p></div>
-<div><label>登録設定</label><p class="mut">カテゴリ</p><div class="field">予約・キャンセル ⌄</div><p class="mut">公開対象：利用者用</p></div>
-<p style="display:flex;gap:10px"><a class="btn-outline" href="12.html">キャンセル</a><a class="btn-primary" href="12.html">保存</a></p></div>
-<div class="panel"><p style="font-weight:700">編集のヒント</p>
-<p class="mut">1つの質問に、1つの回答を — 複数の内容は分けて登録しましょう。<br>手順は具体的に、簡潔に — 画面名や操作名を明記しましょう。<br>公開前に内容を確認 — 「本番反映」から公開できます。</p>
-<div class="notice">保存後、本番反映を行うまで選択した対象には公開されません。入力内容は自動保存されません。</div></div></div>
+<div class="layout"><aside class="sidebar"><div class="brand">MediFlow</div><div class="sub">医療連携プラットフォーム</div><div class="sub">ADMIN CONSOLE</div><a href="02.html" class="">01 ダッシュボード</a><a href="03.html" class="">02 アカウント管理</a><a href="04.html" class="">03 予約・問診データ連携</a><a href="05.html" class="">04 AIチャット管理</a><a href="11.html" class="active">05 Q&A管理</a><a href="07.html" class="">06 システム・障害管理</a><a href="08.html" class="">07 お問い合わせ管理</a><div class="foot">医療データを、安全につなぐ。<br><a href="09.html" style="padding:0;color:#fff;font-weight:700">ログアウト</a></div></aside><main class="main"><div><a class="backlink" href="12.html">← Q&A一覧に戻る</a><h1>Q&Aを編集</h1><p class="mut">病院向け・利用者向けのよくある質問と回答を編集します。</p></div>
+<div class="split"><div class="panel"><p style="font-weight:700;font-size:18px">質問と回答</p><p class="mut">利用者にわかりやすい、具体的な内容を入力してください。</p>
+<div><label>質問 <span class="badge">必須</span></label><div class="field">予約の変更・キャンセルはどこからできますか？</div><p class="mut hintrow"><span>利用者が実際に尋ねる表現で入力してください。</span><span>22 / 200文字</span></p></div>
+<div><label>回答 <span class="badge">必須</span></label><textarea>予約の変更・キャンセルは、マイページの「予約一覧」からお手続きいただけます。
+
+対象の予約を選び、「予約を変更」または「予約をキャンセル」を押してください。
+当日の変更やキャンセルについては、予約先の医療機関へ直接お問い合わせください。</textarea><p class="mut hintrow"><span>改行を使用できます。個人情報や診断にあたる内容は含めないでください。</span><span>118 / 2,000文字</span></p></div>
+</div>
+<div class="sidecol"><div class="panel"><p style="font-weight:700;font-size:18px">登録設定</p>
+<div><label>カテゴリ</label><div class="field">予約・キャンセル ⌄</div></div>
+<div><label>公開対象</label><div class="seg"><div>病院用</div><div class="on">● 利用者用</div></div></div>
+</div>
+<div class="guide"><p style="font-weight:700;font-size:15px">Q&A作成のポイント</p>
+<div class="gitem"><span class="gnum">01</span><div><p class="ghead">1つの質問に、1つの回答を</p><p class="mut">複数の内容は分けて登録しましょう。</p></div></div>
+<div class="gitem"><span class="gnum">02</span><div><p class="ghead">手順は具体的に、簡潔に</p><p class="mut">画面名や操作名を明記しましょう。</p></div></div>
+<div class="gitem"><span class="gnum">03</span><div><p class="ghead">公開前に内容を確認</p><p class="mut">「本番反映」から公開できます。</p></div></div>
+</div></div></div>
+<div class="actionbar"><div><p class="mut">保存後、本番反映を行うまで選択した対象には公開されません。</p><p class="mut">入力内容は自動保存されません。</p></div>
+<p style="display:flex;gap:10px"><a class="btn-outline" href="12.html">キャンセル</a><a class="btn-danger" href="12.html">削除</a><a class="btn-primary" href="12.html">保存</a></p></div>
 </main></div>
 <footer class="footlink"><a href="../index.html">← 画面一覧へ戻る</a></footer></div></body></html>
