@@ -1,0 +1,61 @@
+/* MediFlow 共通スタイル — Figmaデザインから抽出
+   背景 #f5f9f7 / メイン #087f74 / 文字(濃) #173e3a / 文字(淡) #607671 / 枠線 #dce7e2
+   フォント: Noto Sans JP / 画面幅: 393px (iPhone 16) */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background: #e8efec;
+  color: #173e3a;
+  display: flex; justify-content: center;
+}
+.phone {
+  width: 393px; min-height: 852px;
+  background: #f5f9f7;
+  display: flex; flex-direction: column;
+  box-shadow: 0 0 24px rgba(23,62,58,.12);
+}
+.statusbar {
+  height: 32px; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; font-weight: 700;
+}
+.header {
+  padding: 14px 24px; font-size: 22px; font-weight: 700;
+  display: flex; align-items: center; gap: 12px;
+}
+.header .back { font-size: 28px; text-decoration: none; color: #173e3a; }
+.header .title { font-size: 18px; }
+.body { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 18px; flex: 1; }
+.eyebrow { color: #087f74; font-size: 11px; font-weight: 700; }
+h1 { font-size: 26px; line-height: 1.55; }
+.lead { color: #607671; font-size: 14px; line-height: 1.55; }
+label { font-size: 13px; font-weight: 700; display: block; margin-bottom: 7px; }
+.input {
+  background: #fff; border: 1px solid #dce7e2; border-radius: 12px;
+  padding: 14px 15px; font-size: 14px; color: #607671;
+  display: flex; justify-content: space-between;
+}
+.btn-primary {
+  background: #087f74; color: #fff; text-align: center;
+  padding: 15px 14px; border-radius: 14px; font-size: 15px; font-weight: 700;
+  text-decoration: none; display: block;
+}
+.btn-outline {
+  background: #fff; border: 1px solid #dce7e2; color: #087f74; text-align: center;
+  padding: 15px 14px; border-radius: 14px; font-size: 15px; font-weight: 700;
+  text-decoration: none; display: block;
+}
+.notice { background: #fff0ed; border: 1px solid #dce7e2; border-radius: 20px; padding: 14px 20px; font-size: 13px; }
+.card { background: #fff; border: 1px solid #dce7e2; border-radius: 16px; padding: 16px; }
+.center-note { text-align: center; color: #607671; font-size: 13px; }
+.link { color: #087f74; font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; display: block; }
+.homebar { width: 120px; height: 4px; background: #173e3a; border-radius: 2px; margin: 12px auto; opacity: .7; }
+/* 入口・一覧用 */
+.index-wrap { width: min(960px, 100%); background: #f5f9f7; min-height: 100vh; padding: 32px 24px; }
+.index-wrap h1 { margin-bottom: 8px; }
+.screen-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 10px; margin: 12px 0 28px; }
+.screen-list a {
+  display: block; background: #fff; border: 1px solid #dce7e2; border-radius: 12px;
+  padding: 12px 14px; color: #173e3a; text-decoration: none; font-size: 14px;
+}
+.screen-list a:hover { border-color: #087f74; }

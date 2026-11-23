@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>08 お問い合わせ管理 | MediFlow 管理者</title><link rel="stylesheet" href="../assets/style.css"><style>
+body{display:block;background:#e8efec}
+.admin{width:min(1440px,100%);margin:0 auto;background:#f5f9f7;min-height:100vh;display:flex;flex-direction:column}
+.topbar{background:#fff;border-bottom:1px solid #dce7e2;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.topbar .env{background:#087f74;color:#fff;border-radius:999px;padding:3px 12px;font-weight:700}
+.layout{display:flex;flex:1}
+.sidebar{width:250px;background:#173e3a;color:#eaf4f0;padding:24px 18px;display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+.sidebar .brand{font-size:20px;font-weight:700;color:#fff}
+.sidebar .sub{font-size:11px;color:#9fc4ba;letter-spacing:.12em;margin-bottom:4px}
+.sidebar a{color:#eaf4f0;text-decoration:none;padding:10px 12px;border-radius:10px;font-size:14px;display:block}
+.sidebar a:hover,.sidebar a.active{background:#087f74;color:#fff}
+.sidebar .foot{margin-top:auto;font-size:12px;color:#9fc4ba;line-height:1.7}
+.main{flex:1;padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.main h1{font-size:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.stat{background:#fff;border:1px solid #dce7e2;border-radius:16px;padding:16px}
+.stat .num{font-size:28px;font-weight:700;margin:4px 0}
+.stat .lbl{font-size:13px;font-weight:700}
+.mut{color:#607671;font-size:13px;line-height:1.6}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #dce7e2;border-radius:12px;overflow:hidden;font-size:13px}
+th,td{padding:10px 12px;border-bottom:1px solid #eef4f1;text-align:left;vertical-align:top}
+th{background:#eef6f3;font-weight:700}
+.badge{display:inline-block;background:#e6f4f1;color:#087f74;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700}
+.badge.warn{background:#fff0ed;color:#b3402a}
+.badge.gray{background:#eef1f0;color:#607671}
+.panel{background:#fff;border:1px solid #dce7e2;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.split{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start}
+@media(max-width:900px){.split{grid-template-columns:1fr}.sidebar{width:190px}}
+textarea,.field{background:#fff;border:1px solid #dce7e2;border-radius:12px;padding:12px 14px;font-size:14px;color:#173e3a;width:100%}
+textarea{min-height:110px;font-family:inherit;line-height:1.6}
+.alert{background:#fff0ed;border:1px solid #f0cfc8;border-radius:14px;padding:12px 16px;font-size:13px}
+.footlink{padding:14px 28px;font-size:13px}.footlink a{color:#087f74}
+.auth{width:min(1100px,92%);margin:40px auto;background:#fff;border:1px solid #dce7e2;border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:800px){.auth{grid-template-columns:1fr}}
+</style></head>
+<body><div class="admin">
+<div class="topbar"><span><strong>MediFlow</strong> 管理コンソール</span><span class="env">本番環境</span></div>
+<div class="layout"><aside class="sidebar"><div class="brand">MediFlow</div><div class="sub">医療連携プラットフォーム</div><div class="sub">ADMIN CONSOLE</div><a href="02.html" class="">01 ダッシュボード</a><a href="03.html" class="">02 アカウント管理</a><a href="04.html" class="">03 予約・問診データ連携</a><a href="05.html" class="">04 AIチャット管理</a><a href="11.html" class="">05 Q&A管理</a><a href="07.html" class="">06 システム・障害管理</a><a href="08.html" class="active">07 お問い合わせ管理</a><div class="foot">医療データを、安全につなぐ。<br><a href="09.html" style="padding:0;color:#fff;font-weight:700">ログアウト</a></div></aside><main class="main"><div><p class="eyebrow">ADMIN CONSOLE</p><h1>お問い合わせ管理</h1><p class="mut">届いたお問い合わせを確認し、送信者へ回答します。</p></div>
+<div class="split"><div class="panel"><p style="font-weight:700">受信したお問い合わせ</p><p class="mut">8件　／　未対応のみ表示中　／　新着順</p>
+<div class="input">件名・送信者名で検索</div>
+<table><tr><th>日時</th><th>件名・送信者</th><th>状態</th></tr>
+<tr><td>2026/11/15 09:28</td><td><strong>予約データが反映されません</strong><br>さくらクリニック<br><span class="mut">データ連携について確認したいです。</span></td><td><span class="badge">選択中</span></td></tr>
+<tr><td>2026/11/15 09:12</td><td><strong>スタッフアカウントの追加について</strong><br>みなと内科<br><span class="mut">新しいスタッフの登録方法を教えて…</span></td><td><span class="badge warn">未対応</span></td></tr>
+<tr><td>2026/11/14 17:45</td><td><strong>問診アンケートの項目変更</strong><br>青葉メディカル<br><span class="mut">初診用の質問項目を追加したいです。</span></td><td></td></tr>
+<tr><td>2026/11/14 16:30</td><td><strong>請求書の送付先を変更したい</strong><br>ひかり医院<br><span class="mut">経理担当の変更に伴い、送付先を…</span></td><td></td></tr>
+<tr><td>2026/11/14 15:08</td><td><strong>AIチャットの回答内容について</strong><br>中央クリニック<br><span class="mut">回答ガイドラインの設定について…</span></td><td></td></tr></table>
+<p class="mut">全8件中 1–5件を表示　<a href="08.html">前へ</a>　<a href="08.html">次へ</a></p></div>
+<div style="display:flex;flex-direction:column;gap:16px"><div class="panel"><p style="font-weight:700">#INQ-2026-0115</p>
+<p class="mut">送信者：佐藤 花子<br>メール：hanako.sato@example.com<br>受信日時：2026/11/15 09:28<br>カテゴリ：データ連携</p>
+<p>いつもお世話になっております。<br>本日9時頃に予約した患者さまの情報が、管理画面に反映されていません。<br>予約システム側では登録済みとなっています。連携状況をご確認いただけますか。<br>よろしくお願いいたします。</p></div>
+<div class="panel"><p style="font-weight:700">回答を作成</p><p class="mut">テンプレートを選択　／　宛先：hanako.sato@example.com</p>
+<div><label>件名</label><div class="field">Re: 予約データが反映されません</div></div>
+<div><label>回答内容</label><textarea>お問い合わせありがとうございます。MediFlowサポートです。
+予約データの反映について、ご不便をおかけしており申し訳ございません。
+連携状況を確認のうえ、改めてご案内いたします。</textarea></div>
+<p class="mut">担当：未設定　／　送信後のステータス：対応中</p>
+<p class="mut">回答は送信者のメールアドレスに送信されます。</p>
+<p style="display:flex;gap:10px"><a class="btn-outline" href="08.html">下書き保存</a><a class="btn-primary" href="02.html">回答を送信</a></p></div></div></div>
+</main></div>
+<footer class="footlink"><a href="../index.html">← 画面一覧へ戻る</a></footer></div></body></html>

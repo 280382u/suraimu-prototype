@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>04 予約・問診データ連携監視 | MediFlow 管理者</title><link rel="stylesheet" href="../assets/style.css"><style>
+body{display:block;background:#e8efec}
+.admin{width:min(1440px,100%);margin:0 auto;background:#f5f9f7;min-height:100vh;display:flex;flex-direction:column}
+.topbar{background:#fff;border-bottom:1px solid #dce7e2;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.topbar .env{background:#087f74;color:#fff;border-radius:999px;padding:3px 12px;font-weight:700}
+.layout{display:flex;flex:1}
+.sidebar{width:250px;background:#173e3a;color:#eaf4f0;padding:24px 18px;display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+.sidebar .brand{font-size:20px;font-weight:700;color:#fff}
+.sidebar .sub{font-size:11px;color:#9fc4ba;letter-spacing:.12em;margin-bottom:4px}
+.sidebar a{color:#eaf4f0;text-decoration:none;padding:10px 12px;border-radius:10px;font-size:14px;display:block}
+.sidebar a:hover,.sidebar a.active{background:#087f74;color:#fff}
+.sidebar .foot{margin-top:auto;font-size:12px;color:#9fc4ba;line-height:1.7}
+.main{flex:1;padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.main h1{font-size:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.stat{background:#fff;border:1px solid #dce7e2;border-radius:16px;padding:16px}
+.stat .num{font-size:28px;font-weight:700;margin:4px 0}
+.stat .lbl{font-size:13px;font-weight:700}
+.mut{color:#607671;font-size:13px;line-height:1.6}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #dce7e2;border-radius:12px;overflow:hidden;font-size:13px}
+th,td{padding:10px 12px;border-bottom:1px solid #eef4f1;text-align:left;vertical-align:top}
+th{background:#eef6f3;font-weight:700}
+.badge{display:inline-block;background:#e6f4f1;color:#087f74;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700}
+.badge.warn{background:#fff0ed;color:#b3402a}
+.badge.gray{background:#eef1f0;color:#607671}
+.panel{background:#fff;border:1px solid #dce7e2;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.split{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start}
+@media(max-width:900px){.split{grid-template-columns:1fr}.sidebar{width:190px}}
+textarea,.field{background:#fff;border:1px solid #dce7e2;border-radius:12px;padding:12px 14px;font-size:14px;color:#173e3a;width:100%}
+textarea{min-height:110px;font-family:inherit;line-height:1.6}
+.alert{background:#fff0ed;border:1px solid #f0cfc8;border-radius:14px;padding:12px 16px;font-size:13px}
+.footlink{padding:14px 28px;font-size:13px}.footlink a{color:#087f74}
+.auth{width:min(1100px,92%);margin:40px auto;background:#fff;border:1px solid #dce7e2;border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:800px){.auth{grid-template-columns:1fr}}
+</style></head>
+<body><div class="admin">
+<div class="topbar"><span><strong>MediFlow</strong> 管理コンソール</span><span class="env">本番環境</span></div>
+<div class="layout"><aside class="sidebar"><div class="brand">MediFlow</div><div class="sub">医療連携プラットフォーム</div><div class="sub">ADMIN CONSOLE</div><a href="02.html" class="">01 ダッシュボード</a><a href="03.html" class="">02 アカウント管理</a><a href="04.html" class="active">03 予約・問診データ連携</a><a href="05.html" class="">04 AIチャット管理</a><a href="11.html" class="">05 Q&A管理</a><a href="07.html" class="">06 システム・障害管理</a><a href="08.html" class="">07 お問い合わせ管理</a><div class="foot">医療データを、安全につなぐ。<br><a href="09.html" style="padding:0;color:#fff;font-weight:700">ログアウト</a></div></aside><main class="main"><div><p class="eyebrow">ADMIN CONSOLE</p><h1>予約・問診データ連携監視</h1><p class="mut">予約・問診データの送受信と、病院システムとの連携状態を監視します。</p></div>
+<div class="alert">送信遅延を検知（最終検知 09:38）</div>
+<div class="cards">
+<div class="stat"><div class="lbl">本日の送受信</div><div class="num">2,486件</div><p class="mut">予約 1,412 / 問診 1,074</p></div>
+<div class="stat"><div class="lbl">正常完了</div><div class="num">2,481件</div><p class="mut">成功率 99.8%</p></div>
+<div class="stat"><div class="lbl">再送待ち</div><div class="num">3件</div><p class="mut">自動再送まで 02:18</p></div>
+<div class="stat"><div class="lbl">エラー</div><div class="num">2件</div><p class="mut">要確認</p></div></div>
+<div class="panel"><p style="font-weight:700">送受信履歴</p>
+<table><tr><th>時刻</th><th>病院名</th><th>データ種別</th><th>方向</th><th>状態</th><th>処理時間</th><th>操作</th></tr>
+<tr><td>09:41:52</td><td>青葉メディカルセンター</td><td>予約</td><td>受信</td><td><span class="badge">完了</span></td><td>248ms</td><td><a href="04.html">詳細</a></td></tr>
+<tr><td>09:41:48</td><td>ひかり小児科</td><td>問診</td><td>送信</td><td><span class="badge">完了</span></td><td>312ms</td><td><a href="04.html">詳細</a></td></tr>
+<tr><td>09:38:06</td><td>さくら総合病院</td><td>問診</td><td>送信</td><td><span class="badge warn">タイムアウト</span></td><td>—</td><td><a href="04.html">再送する</a></td></tr></table></div>
+<div class="panel"><p style="font-weight:700">連携先の状態</p>
+<p class="mut">予約API：<strong>正常</strong>（最終受信 09:41:52）<br>問診API：<strong>一部遅延</strong> — <a href="04.html">さくら総合病院を確認</a><br>病院システム接続：48施設中 47施設 正常（1施設で応答遅延）</p></div>
+</main></div>
+<footer class="footlink"><a href="../index.html">← 画面一覧へ戻る</a></footer></div></body></html>
